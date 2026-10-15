@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore historical NBA win forecasts, model comparisons, and confidence versus coverage.">
+  <title>NBA Betr Picks | Research Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<div id="nba-demo">
+
+<header><span class="brand">NBA Betr Picks<span style="color:var(--brand)">.</span></span><span class="tag">RESEARCH DEMO · HISTORICAL DATA</span></header>
+<main>
+<h2>Every pick has a probability.</h2><p>Explore the forecasts. Reveal the outcomes. Evaluate the uncertainty.</p>
+<nav aria-label="Demo views"><button class="cursor-interaction" data-view="games" aria-pressed="true">Game forecasts</button><button class="cursor-interaction" data-view="research" aria-pressed="false">Model lab</button><button class="cursor-interaction" data-view="confidence" aria-pressed="false">Confidence & coverage</button></nav>
+<section data-page="games" class="columns">
+<div class="panel"><h3>Historical replay</h3><div class="games" id="nba-games"></div><p class="caption" style="margin-top:16px">Three published examples · Basic logistic · Raw probabilities</p></div>
+<div class="panel" id="nba-forecast" aria-live="polite"></div>
+</section>
+<section data-page="research" hidden>
+<div class="columns"><div class="panel"><h3>Compare model conditions</h3><label>Model<select id="nba-model"></select></label><label>Probability treatment<select id="nba-treatment"><option value="raw">Raw probabilities</option><option value="cal">Sigmoid calibrated (Basic only)</option></select></label><p id="nba-model-note"></p></div><div class="panel" aria-live="polite"><h3>Final test · 2023–24</h3><p>1,230 games · Same chronological test period</p><div class="metrics" id="nba-model-metrics"></div><p id="nba-insight"></p></div></div>
+<div class="steps"><div><strong>Train</strong>2010–11 → 2020–21<br>12,968 games</div><div><strong>Select</strong>2021–22<br>1,230 games</div><div><strong>Calibrate</strong>2022–23<br>1,230 games</div><div><strong>Test</strong>2023–24<br>1,230 games</div></div>
+</section>
+<section data-page="confidence" class="columns" hidden><div class="panel"><h3>Choose a confidence threshold</h3><label>Minimum predicted winner probability<select id="nba-threshold"><option value="0">50%</option><option value="1">60%</option><option value="2">70%</option><option value="3">80%</option></select></label><p>Published thresholds for the raw primary model across the full test season.</p></div><div class="panel" aria-live="polite"><h3>Accuracy versus coverage</h3><div class="metrics" id="nba-confidence-metrics"></div><div class="caption">Share of test games retained</div><div class="bar"><span id="nba-coverage"></span></div><p id="nba-confidence-note"></p></div></section>
+</main><footer>Based on the supplied NBA Betr Picks paper, slides and poster. Reported results are replayed, not recomputed. No live feed or trained model is connected.</footer>
+
+</div>
+<noscript>Please enable JavaScript to use the interactive research demo.</noscript>
+</body>
+</html>
